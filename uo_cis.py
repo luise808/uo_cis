@@ -12,3 +12,7 @@ def plot_x_by_class_y(*, table, x_column, y_column):
 
   pd.crosstab(table[x_column], table[y_column]).plot(kind='bar', figsize=(15,8), grid=True, logy=True)
   return None
+
+def mcc(*, tp, tn, fp, fn):
+  mcc_score = (tp*tn-fp*fn)/((tp+fp)*(tp+fn)*(tn+fp)*(tn+fn))**.5
+  return mcc_score

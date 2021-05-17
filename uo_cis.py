@@ -1,5 +1,10 @@
 import pandas as pd
 
+import spacy
+
+import en_core_web_md  #1M words in dictionary
+nlp = en_core_web_md.load() 
+
 def remove_list_item(*,the_list,the_item):#creates a new list w/o the item removing
   new_list = [item for item in the_list if item != the_item]
   return new_list
@@ -16,3 +21,8 @@ def plot_x_by_class_y(*, table, x_column, y_column):
 def mcc(*, tp, tn, fp, fn):
   mcc_score = (tp*tn-fp*fn)/((tp+fp)*(tp+fn)*(tn+fp)*(tn+fn))**.5
   return mcc_score
+
+def wrangle_text(*,essay):
+  doc = nlp(essay)
+  essay_wrangle = [essay.text.lower() for essay in doc if not essay.is_stop and not essay.is_oov and essay.is_alpha]
+  return essay_wrangle

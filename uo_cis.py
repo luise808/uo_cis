@@ -22,7 +22,22 @@ def mcc(*, tp, tn, fp, fn):
   mcc_score = (tp*tn-fp*fn)/((tp+fp)*(tp+fn)*(tn+fp)*(tn+fn))**.5
   return mcc_score
 
-def wrangle_text(*,essay):
+def wrangle_text(*,essay): #essay needs to be a string
   doc = nlp(essay)
   essay_wrangle = [essay.text.lower() for essay in doc if not essay.is_stop and not essay.is_oov and essay.is_alpha]
   return essay_wrangle
+
+def precision(*,tp,fp)
+  pre = tp/(tp+fp)
+  return pre
+
+def recall(*,tp,fn)
+  rec = tp/(tp,fn)
+  
+def accuracy(*,tp,fp,tn,fn)
+  acc = (tp+tn)/(tp+tn+fp+fn)
+  return acc
+  
+def f1(*, tp, fp, fn):
+  f1_num = (2*tp)/(2*tp + fp + fn)
+  return f1_num

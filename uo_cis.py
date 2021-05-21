@@ -27,14 +27,14 @@ def wrangle_text(*,essay): #essay needs to be a string
   essay_wrangle = [essay.text.lower() for essay in doc if not essay.is_stop and not essay.is_oov and essay.is_alpha]
   return essay_wrangle
 
-def precision(*,tp,fp)
+def precision(*,tp,fp):
   pre = tp/(tp+fp)
   return pre
 
-def recall(*,tp,fn)
+def recall(*,tp,fn):
   rec = tp/(tp,fn)
   
-def accuracy(*,tp,fp,tn,fn)
+def accuracy(*,tp,fp,tn,fn):
   acc = (tp+tn)/(tp+tn+fp+fn)
   return acc
   

@@ -32,7 +32,7 @@ def precision(*,tp,fp):
   return pre
 
 def recall(*,tp,fn):
-  rec = tp/(tp,fn)
+  rec = tp/(tp+fn)
   
 def accuracy(*,tp,fp,tn,fn):
   acc = (tp+tn)/(tp+tn+fp+fn)
